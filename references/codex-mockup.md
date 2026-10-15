@@ -36,10 +36,10 @@ python gen_figure.py --prompt mockup_p05.txt --size 1536x1024 --out mockups/p05.
 
 ```
 Use the imagegen skill with the built-in image_gen tool.   <- 仅通道 A 需要这一行
-Generate ONE 16:9 slide layout mockup (1536x1024) for an academic grant-review presentation.
+Generate ONE 16:9 slide layout mockup (1536x1024) for an academic presentation.
 It is a layout reference only, not final content.
 
-Slide purpose (one sentence): <这一页要让评审记住的结论，英文>
+Slide purpose (one sentence): <这一页要让听众记住的结论，英文>
 Layout: <例：title top-left; one conclusion banner under the title;
          three equal cards side by side, each with header, a simple line icon, three short lines;
          a thin footnote band at the bottom>
@@ -54,5 +54,5 @@ Copy the final PNG to ./mockup_p<NN>.png in the current directory and reply with
 ## 用样图做什么
 
 1. 和用户确认构图：几栏、视觉主体放哪、留白多少。
-2. 量出样图中的栏宽比例、边距、卡片间距，换算成 pt 后用原生形状实现。
-3. 检查实现后的页面是否仍满足 SKILL.md 第 2 节的层级对称约束；样图常常为了好看牺牲对称，以约束为准。
+2. 从样图读出分栏比例和块的上下顺序，写进 spec（`split` 的 `ratio`、`blocks` 的顺序），交给 `deck.py` 生成。
+3. 检查实现后的页面是否仍满足 SKILL.md 第 5 节的层级对称约束；样图常常为了好看牺牲对称，以约束为准。
